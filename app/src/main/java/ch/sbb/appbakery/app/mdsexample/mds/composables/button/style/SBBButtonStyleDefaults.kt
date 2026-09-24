@@ -1,4 +1,4 @@
-package ch.sbb.appbakery.app.mdsexample.mds.composables.button
+package ch.sbb.appbakery.app.mdsexample.mds.composables.button.style
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.style.Style
@@ -10,7 +10,6 @@ import androidx.compose.material3.Typography
 import androidx.compose.ui.unit.dp
 import ch.sbb.appbakery.app.mdsexample.mds.theme.SBBColorScheme
 import ch.sbb.appbakery.app.mdsexample.mds.theme.SBBColors
-
 
 internal val baseButtonStyle = Style {
     height(44.dp)

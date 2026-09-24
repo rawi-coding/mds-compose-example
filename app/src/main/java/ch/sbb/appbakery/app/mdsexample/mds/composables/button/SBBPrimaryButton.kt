@@ -20,8 +20,17 @@ import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
+import ch.sbb.appbakery.app.mdsexample.mds.composables.button.style.SBBButtonState
+import ch.sbb.appbakery.app.mdsexample.mds.composables.button.style.buttonStateKey
 import ch.sbb.appbakery.app.mdsexample.mds.theme.SBBTheme
 
+/**
+ * Each main component has its own file, sub-variants are in the same file
+ *
+ * Example:
+ * - SBBPrimaryButton -> SBBPrimaryButton.kt
+ * - SBBTertiaryButton, SBBTertiaryButtonSmall -> SBBTertiaryButton.kt
+ */
 @Composable
 fun SBBPrimaryButton(
     modifier: Modifier = Modifier,

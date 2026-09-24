@@ -11,8 +11,8 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
 import ch.sbb.appbakery.app.mdsexample.mds.composables.item.defaultSBBItemStyle
-import ch.sbb.appbakery.app.mdsexample.mds.composables.button.defaultSBBPrimaryButtonStyle
-import ch.sbb.appbakery.app.mdsexample.mds.composables.button.defaultSBBSecondaryButtonStyle
+import ch.sbb.appbakery.app.mdsexample.mds.composables.button.style.defaultSBBPrimaryButtonStyle
+import ch.sbb.appbakery.app.mdsexample.mds.composables.button.style.defaultSBBSecondaryButtonStyle
 
 internal val LocalSBBIsDarkMode = staticCompositionLocalOf { false }
 internal val LocalSBBColorScheme =
