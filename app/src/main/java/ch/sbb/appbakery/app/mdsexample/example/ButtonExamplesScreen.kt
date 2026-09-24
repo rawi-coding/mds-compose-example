@@ -60,7 +60,6 @@ fun ButtonExamplesScreen(
             modifier = Modifier.fillMaxWidth(),
             labelText = "Primary loading",
             onClick = {},
-            isLoading = true,
         )
 
         SBBSecondaryButton(
@@ -75,7 +74,6 @@ fun ButtonExamplesScreen(
                 Text(text = "Secondary loading")
             },
             onClick = {},
-            isLoading = true,
         )
 
         SBBSecondaryButton(
