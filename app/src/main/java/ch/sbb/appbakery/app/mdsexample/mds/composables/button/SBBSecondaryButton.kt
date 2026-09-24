@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.style.Style
 import androidx.compose.foundation.style.rememberUpdatedStyleState
 import androidx.compose.foundation.style.styleable
 import androidx.compose.foundation.style.then
@@ -21,13 +20,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import ch.sbb.appbakery.app.mdsexample.mds.composables.button.style.SBBButtonState
+import ch.sbb.appbakery.app.mdsexample.mds.composables.button.style.SBBButtonStyle
 import ch.sbb.appbakery.app.mdsexample.mds.composables.button.style.buttonStateKey
+import ch.sbb.appbakery.app.mdsexample.mds.composables.button.style.toStyle
 import ch.sbb.appbakery.app.mdsexample.mds.theme.SBBTheme
 
 @Composable
 fun SBBSecondaryButton(
     modifier: Modifier = Modifier,
-    style: Style = Style,
+    style: SBBButtonStyle = SBBButtonStyle,
     labelText: String? = null,
     onClick: () -> Unit,
     enabled: Boolean = true,
@@ -36,7 +37,7 @@ fun SBBSecondaryButton(
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     val isEnabled = enabled && state != SBBButtonState.Loading
-    val effectiveStyle = SBBTheme.styles!!.secondaryButtonStyle then style
+    val effectiveStyle = SBBTheme.styles!!.secondaryButtonStyle then style.toStyle()
     val styleState = rememberUpdatedStyleState(interactionSource) {
         it.isEnabled = isEnabled
         it[buttonStateKey] = state

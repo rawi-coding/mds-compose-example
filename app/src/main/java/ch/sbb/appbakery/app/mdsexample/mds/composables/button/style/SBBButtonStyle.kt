@@ -2,6 +2,7 @@ package ch.sbb.appbakery.app.mdsexample.mds.composables.button.style
 
 import androidx.compose.foundation.style.CustomStyle
 import androidx.compose.foundation.style.MutableStyleState
+import androidx.compose.foundation.style.Style
 import androidx.compose.foundation.style.StyleScope
 import androidx.compose.foundation.style.StyleStateKey
 
@@ -29,6 +30,11 @@ fun interface SBBButtonStyle : CustomStyle<SBBButtonStyleScope> {
     }
 }
 
+fun SBBButtonStyle.toStyle(): Style = Style {
+    val scope = object : StyleScope by this, SBBButtonStyleScope {}
+    with(scope) { applyStyle() }
+}
+
 enum class SBBButtonState {
     Default,
     Loading,
@@ -43,6 +49,6 @@ var MutableStyleState.buttonState
     }
 
 // TODO: Why does SBBButtonStyleScope not work? https://youtu.be/e-wlF3cmJms?t=1451
-fun StyleScope.loading(block: () -> Unit) {
+fun SBBButtonStyleScope.loading(block: () -> Unit) {
     state(buttonStateKey, block) { key, state -> state[key] == SBBButtonState.Loading }
 }

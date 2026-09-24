@@ -10,9 +10,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
-import ch.sbb.appbakery.app.mdsexample.mds.composables.item.defaultSBBItemStyle
+import ch.sbb.appbakery.app.mdsexample.mds.composables.button.style.SBBButtonStyle
 import ch.sbb.appbakery.app.mdsexample.mds.composables.button.style.defaultSBBPrimaryButtonStyle
 import ch.sbb.appbakery.app.mdsexample.mds.composables.button.style.defaultSBBSecondaryButtonStyle
+import ch.sbb.appbakery.app.mdsexample.mds.composables.button.style.toStyle
+import ch.sbb.appbakery.app.mdsexample.mds.composables.item.defaultSBBItemStyle
 
 internal val LocalSBBIsDarkMode = staticCompositionLocalOf { false }
 internal val LocalSBBColorScheme =
@@ -45,8 +47,8 @@ fun SBBTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     colorScheme: SBBColorScheme = SBBColorScheme.sbb(darkTheme),
     sbbItemStyle: Style = Style,
-    sbbPrimaryButtonStyle: Style = Style,
-    sbbSecondaryButtonStyle: Style = Style,
+    sbbPrimaryButtonStyle: SBBButtonStyle = SBBButtonStyle,
+    sbbSecondaryButtonStyle: SBBButtonStyle = SBBButtonStyle,
     content: @Composable () -> Unit,
 ) {
     CompositionLocalProvider(
@@ -54,8 +56,14 @@ fun SBBTheme(
         LocalSBBColorScheme provides colorScheme,
         LocalSBBStyles provides SBBStyles(
             itemStyle = defaultSBBItemStyle(colorScheme, darkTheme) then sbbItemStyle,
-            primaryButtonStyle = defaultSBBPrimaryButtonStyle(colorScheme, darkTheme) then sbbPrimaryButtonStyle,
-            secondaryButtonStyle = defaultSBBSecondaryButtonStyle(colorScheme, darkTheme) then sbbSecondaryButtonStyle,
+            primaryButtonStyle = defaultSBBPrimaryButtonStyle(
+                colorScheme,
+                darkTheme
+            ) then sbbPrimaryButtonStyle.toStyle(),
+            secondaryButtonStyle = defaultSBBSecondaryButtonStyle(
+                colorScheme,
+                darkTheme
+            ) then sbbSecondaryButtonStyle.toStyle(),
         ),
     ) {
         MaterialTheme(

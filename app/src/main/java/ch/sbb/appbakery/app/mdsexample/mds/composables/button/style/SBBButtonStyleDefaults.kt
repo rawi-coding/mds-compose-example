@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 import ch.sbb.appbakery.app.mdsexample.mds.theme.SBBColorScheme
 import ch.sbb.appbakery.app.mdsexample.mds.theme.SBBColors
 
-internal val baseButtonStyle = Style {
+internal val baseButtonStyle = SBBButtonStyle {
     height(44.dp)
     textStyle(Typography().bodyMedium)
     shape(RoundedCornerShape(22.dp))
@@ -21,7 +21,7 @@ internal val baseButtonStyle = Style {
 internal fun defaultSBBPrimaryButtonStyle(
     colorScheme: SBBColorScheme,
     isDarkMode: Boolean
-): Style = baseButtonStyle then Style {
+): Style = baseButtonStyle.toStyle() then SBBButtonStyle {
     contentColor(SBBColors.white)
     background(colorScheme.primary)
 
@@ -44,12 +44,12 @@ internal fun defaultSBBPrimaryButtonStyle(
             contentColor(if (isDarkMode) SBBColors.smoke else SBBColors.white)
         }
     }
-}
+}.toStyle()
 
 internal fun defaultSBBSecondaryButtonStyle(
     colorScheme: SBBColorScheme,
     isDarkMode: Boolean
-): Style = baseButtonStyle then Style {
+): Style = baseButtonStyle.toStyle() then SBBButtonStyle {
     contentColor(colorScheme.primary)
     background(if (isDarkMode) SBBColors.iron else SBBColors.white)
     borderColor(colorScheme.primary)
@@ -77,6 +77,6 @@ internal fun defaultSBBSecondaryButtonStyle(
             borderColor(if (isDarkMode) SBBColors.iron else SBBColors.cloud)
         }
     }
-}
+}.toStyle()
 
 
