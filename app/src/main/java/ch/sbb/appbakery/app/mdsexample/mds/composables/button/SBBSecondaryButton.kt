@@ -20,33 +20,26 @@ import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
+import ch.sbb.appbakery.app.mdsexample.mds.composables.button.style.SBBButtonState
+import ch.sbb.appbakery.app.mdsexample.mds.composables.button.style.buttonStateKey
 import ch.sbb.appbakery.app.mdsexample.mds.theme.SBBTheme
 
-/**
- * Implementation of the SBB Secondary Button.
- *
- * @param labelText label of button
- * @param enabled controls the enabled state of this button
- * @param isLoading show loading indicator instead of [labelText] and disables button
- * @param onClick called when this button is clicked
- *
- * For a complete definition of the component, please visit digital.sbb.ch
- */
 @Composable
 fun SBBSecondaryButton(
     modifier: Modifier = Modifier,
+    style: Style = Style,
     labelText: String? = null,
-    label: (@Composable RowScope.() -> Unit)? = null,
     onClick: () -> Unit,
     enabled: Boolean = true,
-    isLoading: Boolean = false,
-    style: Style = Style,
+    state: SBBButtonState = SBBButtonState.Default,
+    label: (@Composable RowScope.() -> Unit)? = null,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
-    val isEnabled = enabled && !isLoading
+    val isEnabled = enabled && state != SBBButtonState.Loading
     val effectiveStyle = SBBTheme.styles!!.secondaryButtonStyle then style
     val styleState = rememberUpdatedStyleState(interactionSource) {
         it.isEnabled = isEnabled
+        it[buttonStateKey] = state
     }
 
     val labelSlot: (@Composable RowScope.() -> Unit)? = when {
@@ -76,7 +69,7 @@ fun SBBSecondaryButton(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            if (isLoading) {
+            if (state == SBBButtonState.Loading) {
                 CircularProgressIndicator(
                     modifier = Modifier.size(16.dp),
                     strokeWidth = 2.dp,

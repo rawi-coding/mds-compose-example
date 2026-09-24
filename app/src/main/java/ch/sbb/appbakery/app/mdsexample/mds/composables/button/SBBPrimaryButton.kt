@@ -34,16 +34,15 @@ import ch.sbb.appbakery.app.mdsexample.mds.theme.SBBTheme
 @Composable
 fun SBBPrimaryButton(
     modifier: Modifier = Modifier,
-    labelText: String? = null,
-    label: (@Composable RowScope.() -> Unit)? = null,
+    style: Style = Style,
     onClick: () -> Unit,
     enabled: Boolean = true,
-    isLoading: Boolean = false,
     state: SBBButtonState = SBBButtonState.Default,
-    style: Style = Style,
+    labelText: String? = null,
+    label: (@Composable RowScope.() -> Unit)? = null,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
-    val isEnabled = enabled && !isLoading
+    val isEnabled = enabled && state != SBBButtonState.Loading
     val effectiveStyle = SBBTheme.styles!!.primaryButtonStyle then style
     val styleState = rememberUpdatedStyleState(interactionSource) {
         it.isEnabled = isEnabled
@@ -77,7 +76,7 @@ fun SBBPrimaryButton(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            if (isLoading) {
+            if (state == SBBButtonState.Loading) {
                 CircularProgressIndicator(
                     modifier = Modifier.size(16.dp),
                     strokeWidth = 2.dp,
