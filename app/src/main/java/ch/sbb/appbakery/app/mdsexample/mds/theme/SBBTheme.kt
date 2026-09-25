@@ -21,10 +21,10 @@ internal val LocalSBBColorScheme =
     staticCompositionLocalOf { SBBColorScheme.sbb(isDarkMode = false) }
 
 internal val LocalSBBStyles =
-    staticCompositionLocalOf<SBBStyles?> { null }
+    staticCompositionLocalOf<SBBStyles> { null!! }
 
 object SBBTheme {
-    val styles: SBBStyles?
+    val styles: SBBStyles
         @ReadOnlyComposable
         @Composable
         get() = LocalSBBStyles.current

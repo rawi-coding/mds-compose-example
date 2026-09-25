@@ -44,7 +44,7 @@ fun SBBPrimaryButton(
 ) {
     val interactionSource = remember { MutableInteractionSource() }
     val isEnabled = enabled && state != SBBButtonState.Loading
-    val effectiveStyle = SBBTheme.styles!!.primaryButtonStyle then style.toStyle()
+    val effectiveStyle = SBBTheme.styles.primaryButtonStyle then style.toStyle()
     val styleState = rememberUpdatedStyleState(interactionSource) {
         it.isEnabled = isEnabled
         it[buttonStateKey] = state

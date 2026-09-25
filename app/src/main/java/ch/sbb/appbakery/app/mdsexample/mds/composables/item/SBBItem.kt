@@ -30,8 +30,7 @@ fun SBBItem(
     onClick: (() -> Unit)? = null,
     style: Style = Style,
 ) {
-    // TODO: how to guarantee style exists?
-    val effectiveStyle = SBBTheme.styles!!.itemStyle then style
+    val effectiveStyle = SBBTheme.styles.itemStyle then style
 
     val enabled = onClick != null
     val interactionSource = remember { MutableInteractionSource() }
