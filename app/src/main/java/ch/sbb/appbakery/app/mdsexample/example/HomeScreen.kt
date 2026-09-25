@@ -13,6 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import ch.sbb.appbakery.app.mdsexample.DemoScreen
 import ch.sbb.appbakery.app.mdsexample.example.composables.ComponentBadge
+import ch.sbb.appbakery.app.mdsexample.example.composables.DemoColorScheme
+import ch.sbb.appbakery.app.mdsexample.example.composables.ThemeControls
 import ch.sbb.appbakery.app.mdsexample.mds.composables.item.SBBItem
 
 @Composable

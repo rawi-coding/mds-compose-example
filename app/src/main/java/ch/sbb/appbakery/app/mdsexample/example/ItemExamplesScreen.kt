@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.style.Style
 import androidx.compose.foundation.style.disabled
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
@@ -15,7 +14,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import ch.sbb.appbakery.app.mdsexample.example.composables.ComponentBadge
+import ch.sbb.appbakery.app.mdsexample.example.composables.DemoColorScheme
+import ch.sbb.appbakery.app.mdsexample.example.composables.ThemeControls
 import ch.sbb.appbakery.app.mdsexample.mds.composables.item.SBBItem
+import ch.sbb.appbakery.app.mdsexample.mds.composables.item.style.SBBItemStyle
 import ch.sbb.appbakery.app.mdsexample.mds.theme.SBBColors
 
 @Composable
@@ -26,7 +28,7 @@ fun ItemExamplesScreen(
     onDarkThemeChanged: (Boolean) -> Unit,
     onColorSchemeSelected: (DemoColorScheme) -> Unit,
 ) {
-    val sectionStyle = Style {
+    val sectionStyle = SBBItemStyle {
         background(Color(0xFF9E273D))
         disabled {
             background(Color(0xFFC78E99))
@@ -65,7 +67,7 @@ fun ItemExamplesScreen(
 
         SBBItem(
             titleText = "Instance style override",
-            style = Style {
+            style = SBBItemStyle {
                 background(SBBColors.royal)
             },
             onClick = {},

@@ -62,7 +62,7 @@ internal fun defaultSBBSecondaryButtonStyle(
     }
 
     // TODO: Is it possible to combine multiple states? disabled and loading are identical
-    disabled {
+    loading {
         animate {
             background(if (isDarkMode) SBBColors.transparent else SBBColors.white)
             contentColor(if (isDarkMode) SBBColors.smoke else SBBColors.graphite)

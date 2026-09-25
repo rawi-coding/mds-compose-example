@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.style.Style
 import androidx.compose.foundation.style.rememberUpdatedStyleState
 import androidx.compose.foundation.style.styleable
 import androidx.compose.foundation.style.then
@@ -18,6 +17,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import ch.sbb.appbakery.app.mdsexample.mds.composables.item.style.SBBItemStyle
+import ch.sbb.appbakery.app.mdsexample.mds.composables.item.style.toStyle
 import ch.sbb.appbakery.app.mdsexample.mds.theme.SBBTheme
 
 @Composable
@@ -28,9 +29,9 @@ fun SBBItem(
     leadingIcon: ImageVector? = null,
     leading: (@Composable () -> Unit)? = null,
     onClick: (() -> Unit)? = null,
-    style: Style = Style,
+    style: SBBItemStyle = SBBItemStyle,
 ) {
-    val effectiveStyle = SBBTheme.styles.itemStyle then style
+    val effectiveStyle = SBBTheme.styles.itemStyle then style.toStyle()
 
     val enabled = onClick != null
     val interactionSource = remember { MutableInteractionSource() }

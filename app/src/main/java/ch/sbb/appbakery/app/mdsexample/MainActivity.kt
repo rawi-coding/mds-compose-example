@@ -18,7 +18,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import ch.sbb.appbakery.app.mdsexample.example.ButtonExamplesScreen
-import ch.sbb.appbakery.app.mdsexample.example.DemoColorScheme
+import ch.sbb.appbakery.app.mdsexample.example.composables.DemoColorScheme
 import ch.sbb.appbakery.app.mdsexample.example.HomeScreen
 import ch.sbb.appbakery.app.mdsexample.example.ItemExamplesScreen
 import ch.sbb.appbakery.app.mdsexample.mds.theme.SBBTheme

@@ -1,4 +1,4 @@
-package ch.sbb.appbakery.app.mdsexample.example
+package ch.sbb.appbakery.app.mdsexample.example.composables
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box

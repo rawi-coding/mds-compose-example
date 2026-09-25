@@ -12,6 +12,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import ch.sbb.appbakery.app.mdsexample.example.composables.DemoColorScheme
+import ch.sbb.appbakery.app.mdsexample.example.composables.ThemeControls
 import ch.sbb.appbakery.app.mdsexample.mds.composables.button.SBBPrimaryButton
 import ch.sbb.appbakery.app.mdsexample.mds.composables.button.SBBSecondaryButton
 

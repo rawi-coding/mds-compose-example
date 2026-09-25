@@ -14,7 +14,8 @@ import ch.sbb.appbakery.app.mdsexample.mds.composables.button.style.SBBButtonSty
 import ch.sbb.appbakery.app.mdsexample.mds.composables.button.style.defaultSBBPrimaryButtonStyle
 import ch.sbb.appbakery.app.mdsexample.mds.composables.button.style.defaultSBBSecondaryButtonStyle
 import ch.sbb.appbakery.app.mdsexample.mds.composables.button.style.toStyle
-import ch.sbb.appbakery.app.mdsexample.mds.composables.item.defaultSBBItemStyle
+import ch.sbb.appbakery.app.mdsexample.mds.composables.item.style.defaultSBBItemStyle
+import ch.sbb.appbakery.app.mdsexample.mds.composables.item.style.toStyle
 
 internal val LocalSBBIsDarkMode = staticCompositionLocalOf { false }
 internal val LocalSBBColorScheme =
@@ -55,7 +56,7 @@ fun SBBTheme(
         LocalSBBIsDarkMode provides darkTheme,
         LocalSBBColorScheme provides colorScheme,
         LocalSBBStyles provides SBBStyles(
-            itemStyle = defaultSBBItemStyle(colorScheme, darkTheme) then sbbItemStyle,
+            itemStyle = defaultSBBItemStyle(colorScheme, darkTheme).toStyle() then sbbItemStyle,
             primaryButtonStyle = defaultSBBPrimaryButtonStyle(
                 colorScheme,
                 darkTheme
